@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -90,5 +90,15 @@
 	</dependencies>
 	<build>
 		<finalName>classified</finalName>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+            	<filtering>true</filtering>
+			</testResource>
+			<testResource>
+				<directory>src/main/resources</directory>
+            	<filtering>true</filtering>
+			</testResource>
+		</testResources>
 	</build>
 </project>

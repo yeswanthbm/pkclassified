@@ -22,7 +22,7 @@ public class ItemSubscription implements Serializable {
 
 	//bi-directional many-to-one association to ItemDetail
 	@ManyToOne
-	@JoinColumn(name="ITEM_ID")
+	@JoinColumn(name="ITEM_ID", insertable=false, updatable=false)
 	private ItemDetail itemDetail;
 
 	//bi-directional many-to-one association to Category
@@ -31,7 +31,7 @@ public class ItemSubscription implements Serializable {
 
 	//bi-directional many-to-one association to UserDetail
 	@ManyToOne
-	@JoinColumn(name="SUBSCRIBER_ID")
+	@JoinColumn(name="SUBSCRIBER_ID", insertable=false, updatable=false)
 	private UserDetail userDetail;
 
 	public ItemSubscription() {
