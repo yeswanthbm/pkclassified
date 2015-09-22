@@ -30,5 +30,6 @@ public class TestMysqlConfiguration {
 		
 		System.out.println("categoryDAO**************"+categoryDAO.getCategoryById(1).getDescription());
 	}
+	
 
 }
