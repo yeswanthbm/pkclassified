@@ -1,24 +1,19 @@
 package com.prokarma.classified.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
 /**
  * The primary key class for the item_subscription database table.
  * 
  */
-@Embeddable
 public class ItemSubscriptionPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="SUBSCRIBER_ID", insertable=false, updatable=false)
 	private int subscriberId;
 
-	@Column(name="ITEM_ID", insertable=false, updatable=false)
 	private int itemId;
 
-	@Column(name="CATEGORY_ID", insertable=false, updatable=false)
 	private int categoryId;
 
 	public ItemSubscriptionPK() {

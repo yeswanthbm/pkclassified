@@ -1,7 +1,6 @@
 package com.prokarma.classified.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
 
 
@@ -9,13 +8,9 @@ import java.util.List;
  * The persistent class for the sub_category database table.
  * 
  */
-@Entity
-@Table(name="sub_category")
-@NamedQuery(name="SubCategory.findAll", query="SELECT s FROM SubCategory s")
 public class SubCategory implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
 	private int id;
 
 	private String code;
@@ -25,11 +20,9 @@ public class SubCategory implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to ItemDetail
-	@OneToMany(mappedBy="subCategory")
 	private List<ItemDetail> itemDetails;
 
 	//bi-directional many-to-one association to Category
-	@ManyToOne
 	private Category category;
 
 	public SubCategory() {

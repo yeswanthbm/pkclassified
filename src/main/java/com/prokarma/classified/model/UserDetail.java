@@ -1,7 +1,6 @@
 package com.prokarma.classified.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
 
 
@@ -9,35 +8,26 @@ import java.util.List;
  * The persistent class for the user_details database table.
  * 
  */
-@Entity
-@Table(name="user_details")
-@NamedQuery(name="UserDetail.findAll", query="SELECT u FROM UserDetail u")
 public class UserDetail implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
 	private int id;
 
 	private String address;
 
-	@Column(name="ALTERNATE_NO")
 	private String alternateNo;
 
-	@Column(name="CONTACT_NO")
 	private String contactNo;
 
-	@Column(name="EMAIL_ID")
 	private String emailId;
 
 	private String name;
 
 	private String password;
 
-	@Column(name="USER_ID")
 	private String userId;
 
 	//bi-directional many-to-one association to ItemSubscription
-	@OneToMany(mappedBy="userDetail")
 	private List<ItemSubscription> itemSubscriptions;
 
 	public UserDetail() {

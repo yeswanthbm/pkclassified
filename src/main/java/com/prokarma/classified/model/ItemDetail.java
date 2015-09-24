@@ -1,7 +1,6 @@
 package com.prokarma.classified.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -10,19 +9,13 @@ import java.util.List;
  * The persistent class for the item_details database table.
  * 
  */
-@Entity
-@Table(name="item_details")
-@NamedQuery(name="ItemDetail.findAll", query="SELECT i FROM ItemDetail i")
 public class ItemDetail implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
 	private int id;
 
-	@Column(name="ACTIVE_FLAG")
 	private String activeFlag;
 
-	@Column(name="CREATED_TS")
 	private Timestamp createdTs;
 
 	private String description;
@@ -33,19 +26,14 @@ public class ItemDetail implements Serializable {
 
 	private int price;
 
-	@Column(name="SELLER_ID")
 	private int sellerId;
 
-	@Column(name="UPDATED_TS")
 	private Timestamp updatedTs;
 
 	//bi-directional many-to-one association to SubCategory
-	@ManyToOne
-	@JoinColumn(name="SUB_CATEGORY_ID")
 	private SubCategory subCategory;
 
 	//bi-directional many-to-one association to ItemSubscription
-	@OneToMany(mappedBy="itemDetail")
 	private List<ItemSubscription> itemSubscriptions;
 
 	public ItemDetail() {

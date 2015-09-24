@@ -1,37 +1,26 @@
 package com.prokarma.classified.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
 
 /**
  * The persistent class for the item_subscription database table.
  * 
  */
-@Entity
-@Table(name="item_subscription")
-@NamedQuery(name="ItemSubscription.findAll", query="SELECT i FROM ItemSubscription i")
 public class ItemSubscription implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
 	private ItemSubscriptionPK id;
 
-	@Column(name="ACTIVE_FLAG")
 	private String activeFlag;
 
 	//bi-directional many-to-one association to ItemDetail
-	@ManyToOne
-	@JoinColumn(name="ITEM_ID", insertable=false, updatable=false)
 	private ItemDetail itemDetail;
 
 	//bi-directional many-to-one association to Category
-	@ManyToOne
 	private Category category;
 
 	//bi-directional many-to-one association to UserDetail
-	@ManyToOne
-	@JoinColumn(name="SUBSCRIBER_ID", insertable=false, updatable=false)
 	private UserDetail userDetail;
 
 	public ItemSubscription() {

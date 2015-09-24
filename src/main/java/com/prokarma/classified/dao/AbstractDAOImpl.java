@@ -34,7 +34,6 @@ public class AbstractDAOImpl implements AbstractDAO
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
     
-    @Override
     public <T> Entity<T> findById(final Entity<T> entity, final String selectQuery)
     {
 
@@ -53,7 +52,6 @@ public class AbstractDAOImpl implements AbstractDAO
      * @return the object
      */
     @SuppressWarnings("unchecked")
-    @Override
     public <T> Entity<T> find(final Entity<T> entity, final String selectQuery)
     {
 
@@ -74,7 +72,6 @@ public class AbstractDAOImpl implements AbstractDAO
      * @return the list
      */
     @SuppressWarnings("unchecked")
-    @Override
     public <T> List<T> getList(final Entity<T> entity, final String selectQuery)
     {
 
@@ -94,7 +91,6 @@ public class AbstractDAOImpl implements AbstractDAO
      *            the query
      * @return the int
      */
-    @Override
     public <T> int update(final Entity<T> entity, final String query)
     {
         BeanPropertySqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(entity);
@@ -112,7 +108,6 @@ public class AbstractDAOImpl implements AbstractDAO
      *            the query
      * @return the long
      */
-    @Override
     public <T> Long insert(final Entity<T> entity, final String query)
     {
 
