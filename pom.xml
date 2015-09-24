@@ -87,17 +87,32 @@
 			<version>${springframework.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.2.3</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>classified</finalName>
 		<testResources>
 			<testResource>
 				<directory>src/test/resources</directory>
-            	<filtering>true</filtering>
+				<filtering>true</filtering>
 			</testResource>
 			<testResource>
 				<directory>src/main/resources</directory>
-            	<filtering>true</filtering>
+				<filtering>true</filtering>
 			</testResource>
 		</testResources>
 	</build>
