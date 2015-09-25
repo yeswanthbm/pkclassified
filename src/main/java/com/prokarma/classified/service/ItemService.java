@@ -10,13 +10,13 @@ import com.prokarma.classified.model.ItemDetail;
 
 @Service("itemService")
 public class ItemService {
+
 	@Autowired
 	private ItemDAOImpl ItemDAO;
-	
-	public List<ItemDetail> getItemDetails(){
-		String query="select * from item_details";
-	return 	ItemDAO.getList(new ItemDetail(), query);
+
+	public List<ItemDetail> getItemDetails() {
+		String query = "select * from item_details";
+		return ItemDAO.getList(new ItemDetail(), query);
 	}
-	
 
 }

@@ -13,11 +13,12 @@ import com.prokarma.classified.service.ItemService;
 @RestController
 @RequestMapping("/item")
 public class ItemController {
-	@Autowired
-	private ItemService itemService;	
 	
-	@RequestMapping(method=RequestMethod.GET)
-	public List<ItemDetail> getItemDetails(){
+	@Autowired
+	private ItemService itemService;
+
+	@RequestMapping(method = RequestMethod.GET)
+	public List<ItemDetail> getItemDetails() {
 		return itemService.getItemDetails();
 	}
 }
