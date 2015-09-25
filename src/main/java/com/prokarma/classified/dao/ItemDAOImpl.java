@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.naming.TimeLimitExceededException;
+
 import org.springframework.stereotype.Repository;
 
 import com.prokarma.classified.entity.Entity;
@@ -29,34 +31,38 @@ public class ItemDAOImpl extends AbstractDAOImpl {
 	}
 
 	public <T> int addItemDetails(ItemDetail itemDetail) {
-		final String SQL = "insert into "
-				+ "item_details (name, sub_category_id, price, description, "
-				+ "location, active_flag, seller_id, created_ts, updated_ts) "
-				+ "values (:name, :sub_category_id, :price, :description, :location, :active_flag, :seller_id, :created_ts, :updated_ts);";
-		
-		String name = itemDetail.getName();
-		int sub_category_id = itemDetail.getSubCategoryId();
-		int price = itemDetail.getPrice();
-		String description = itemDetail.getDescription();
-		String location = itemDetail.getLocation();
-		String active_flag = itemDetail.getActiveFlag();
-		int seller_id = itemDetail.getSellerId();
-		Timestamp created_ts = new Timestamp(new java.util.Date().getTime());
-		Timestamp updated_ts = new Timestamp(new java.util.Date().getTime());
-		
-		Map namedParameters = new HashMap();     
-		namedParameters.put("name", name);     
-		namedParameters.put("sub_category_id", sub_category_id);  
-		namedParameters.put("price", price);  
-		namedParameters.put("description", description);
-		namedParameters.put("location", location);
-		namedParameters.put("active_flag", active_flag);
-		namedParameters.put("seller_id", seller_id);
-		namedParameters.put("created_ts", created_ts);
-		namedParameters.put("updated_ts", updated_ts);
-		
-		int result = getNamedParameterJdbcTemplate().update(SQL, namedParameters);
-		
+		int result = 0;
+		if(itemDetail != null){
+			final String SQL = "insert into "
+					+ "item_details (name, sub_category_id, price, description, "
+					+ "location, active_flag, seller_id, created_ts, updated_ts) "
+					+ "values (:name, :sub_category_id, :price, :description, :location, :active_flag, :seller_id, :created_ts, :updated_ts);";
+			
+			
+			final String name = itemDetail.getName();
+			final int sub_category_id = itemDetail.getSubCategoryId();
+			final int price = itemDetail.getPrice();
+			final String description = itemDetail.getDescription();
+			final String location = itemDetail.getLocation();
+			final String active_flag = "T";
+			final int seller_id = itemDetail.getSellerId();
+			final Timestamp timestamp = new Timestamp(new java.util.Date().getTime());
+			final Timestamp created_ts = timestamp;
+			final Timestamp updated_ts = timestamp;
+			
+			Map namedParameters = new HashMap();     
+			namedParameters.put("name", name);     
+			namedParameters.put("sub_category_id", sub_category_id);  
+			namedParameters.put("price", price);  
+			namedParameters.put("description", description);
+			namedParameters.put("location", location);
+			namedParameters.put("active_flag", active_flag);
+			namedParameters.put("seller_id", seller_id);
+			namedParameters.put("created_ts", created_ts);
+			namedParameters.put("updated_ts", updated_ts);
+			
+			result = getNamedParameterJdbcTemplate().update(SQL, namedParameters);
+		}
 		return result;
 	}
 
