@@ -12,11 +12,14 @@ import com.prokarma.classified.model.ItemDetail;
 public class ItemService {
 
 	@Autowired
-	private ItemDAOImpl ItemDAO;
+	private ItemDAOImpl itemDAO;
 
 	public List<ItemDetail> getItemDetails() {
-		String query = "select * from item_details";
-		return ItemDAO.getList(new ItemDetail(), query);
+		return itemDAO.getItemDetailsList();
 	}
-
+	
+	public int addItemDetails(ItemDetail itemDetail) {
+		return itemDAO.addItemDetails(itemDetail);
+	}
+	
 }

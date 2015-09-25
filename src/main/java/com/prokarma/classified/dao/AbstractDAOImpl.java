@@ -16,110 +16,105 @@ import com.prokarma.classified.entity.Entity;
  * The Class BaseDaoImpl.
  */
 @Repository("baseDao")
-public class AbstractDAOImpl implements AbstractDAO
-{
+public class AbstractDAOImpl implements AbstractDAO {
 
+	@Autowired
+	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    @Autowired
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+	public NamedParameterJdbcTemplate getNamedParameterJdbcTemplate() {
+		return namedParameterJdbcTemplate;
+	}
 
-    public NamedParameterJdbcTemplate getNamedParameterJdbcTemplate()
-    {
+	public void setNamedParameterJdbcTemplate(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+		this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+	}
 
-        return namedParameterJdbcTemplate;
-    }
+	public <T> Entity<T> findById(final Entity<T> entity,
+			final String selectQuery) {
+		return find(entity, selectQuery);
+	}
 
-    public void setNamedParameterJdbcTemplate(NamedParameterJdbcTemplate namedParameterJdbcTemplate)
-    {
-        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
-    }
-    
-    public <T> Entity<T> findById(final Entity<T> entity, final String selectQuery)
-    {
+	/**
+	 * Find.
+	 * 
+	 * @param <T>
+	 *            the generic type
+	 * @param entity
+	 *            the entity
+	 * @param selectQuery
+	 *            the select query
+	 * @return the object
+	 */
+	@SuppressWarnings("unchecked")
+	public <T> Entity<T> find(final Entity<T> entity, final String selectQuery) {
 
-        return find(entity, selectQuery);
-    }
+		BeanPropertySqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(
+				entity);
+		return namedParameterJdbcTemplate.queryForObject(selectQuery,
+				sqlParameterSource,
+				BeanPropertyRowMapper.newInstance(entity.getClass()));
+	}
+	
+	/**
+	 * Gets the list.
+	 * 
+	 * @param <T>
+	 *            the generic type
+	 * @param entity
+	 *            the entity
+	 * @param selectQuery
+	 *            the select query
+	 * @return the list
+	 */
+	@SuppressWarnings("unchecked")
+	public <T> List<T> getList(final Entity<T> entity, final String selectQuery) {
 
-    /**
-     * Find.
-     *
-     * @param <T>
-     *            the generic type
-     * @param entity
-     *            the entity
-     * @param selectQuery
-     *            the select query
-     * @return the object
-     */
-    @SuppressWarnings("unchecked")
-    public <T> Entity<T> find(final Entity<T> entity, final String selectQuery)
-    {
+		BeanPropertySqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(
+				entity);
+		return (List<T>) namedParameterJdbcTemplate.query(selectQuery,
+				sqlParameterSource,
+				BeanPropertyRowMapper.newInstance(entity.getClass()));
+	}
+	
+	/**
+	 * Update.
+	 * 
+	 * @param <T>
+	 *            the generic type
+	 * @param entity
+	 *            the entity
+	 * @param query
+	 *            the query
+	 * @return the int
+	 */
+	public <T> int update(final Entity<T> entity, final String query) {
+		BeanPropertySqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(
+				entity);
+		return namedParameterJdbcTemplate.update(query, sqlParameterSource);
+	}
 
-        BeanPropertySqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(entity);
-        return namedParameterJdbcTemplate.queryForObject(selectQuery, sqlParameterSource,
-            BeanPropertyRowMapper.newInstance(entity.getClass()));
-    }
+	/**
+	 * Insert.
+	 * 
+	 * @param <T>
+	 *            the generic type
+	 * @param entity
+	 *            the entity
+	 * @param query
+	 *            the query
+	 * @return the long
+	 */
+	public <T> Long insert(final Entity<T> entity, final String query) {
 
-    /**
-     * Gets the list.
-     *
-     * @param <T>
-     *            the generic type
-     * @param entity
-     *            the entity
-     * @param selectQuery
-     *            the select query
-     * @return the list
-     */
-    @SuppressWarnings("unchecked")
-    public <T> List<T> getList(final Entity<T> entity, final String selectQuery)
-    {
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		BeanPropertySqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(
+				entity);
 
-        BeanPropertySqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(entity);
-        return (List<T>) namedParameterJdbcTemplate.query(selectQuery, sqlParameterSource,
-            BeanPropertyRowMapper.newInstance(entity.getClass()));
-    }
+		namedParameterJdbcTemplate.update(query, sqlParameterSource, keyHolder);
 
-    /**
-     * Update.
-     *
-     * @param <T>
-     *            the generic type
-     * @param entity
-     *            the entity
-     * @param query
-     *            the query
-     * @return the int
-     */
-    public <T> int update(final Entity<T> entity, final String query)
-    {
-        BeanPropertySqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(entity);
-        return namedParameterJdbcTemplate.update(query, sqlParameterSource);
-    }
+		Long generatedId = Long.valueOf(keyHolder.getKey().longValue());
 
-    /**
-     * Insert.
-     *
-     * @param <T>
-     *            the generic type
-     * @param entity
-     *            the entity
-     * @param query
-     *            the query
-     * @return the long
-     */
-    public <T> Long insert(final Entity<T> entity, final String query)
-    {
-
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-        BeanPropertySqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(entity);
-
-        namedParameterJdbcTemplate.update(query, sqlParameterSource, keyHolder);
-
-        Long generatedId = Long.valueOf(keyHolder.getKey().longValue());
-
-        return generatedId;
-    }
-
+		return generatedId;
+	}
 
 }

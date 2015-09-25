@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.prokarma.classified.entity.Entity;
 
 
@@ -11,6 +14,8 @@ import com.prokarma.classified.entity.Entity;
  * The persistent class for the item_details database table.
  * 
  */
+@XmlRootElement
+@JsonAutoDetect
 public class ItemDetail extends Entity<ItemDetail> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -31,6 +36,8 @@ public class ItemDetail extends Entity<ItemDetail> implements Serializable {
 	private int sellerId;
 
 	private Timestamp updatedTs;
+	
+	private int subCategoryId;
 
 	//bi-directional many-to-one association to SubCategory
 	private SubCategory subCategory;
@@ -127,6 +134,14 @@ public class ItemDetail extends Entity<ItemDetail> implements Serializable {
 
 	public void setItemSubscriptions(List<ItemSubscription> itemSubscriptions) {
 		this.itemSubscriptions = itemSubscriptions;
+	}
+	
+	public int getSubCategoryId() {
+		return subCategoryId;
+	}
+
+	public void setSubCategoryId(int subCategoryId) {
+		this.subCategoryId = subCategoryId;
 	}
 
 	public ItemSubscription addItemSubscription(ItemSubscription itemSubscription) {
