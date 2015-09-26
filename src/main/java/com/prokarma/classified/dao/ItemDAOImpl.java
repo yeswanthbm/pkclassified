@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.naming.TimeLimitExceededException;
-
 import org.springframework.stereotype.Repository;
 
 import com.prokarma.classified.entity.Entity;

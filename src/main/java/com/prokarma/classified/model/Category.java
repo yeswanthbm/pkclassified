@@ -3,12 +3,19 @@ package com.prokarma.classified.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.prokarma.classified.entity.Entity;
+
 
 /**
  * The persistent class for the category database table.
  * 
  */
-public class Category implements Serializable {
+@XmlRootElement
+@JsonAutoDetect
+public class Category  extends Entity<Category> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int id;
