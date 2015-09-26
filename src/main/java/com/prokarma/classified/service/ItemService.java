@@ -14,12 +14,20 @@ public class ItemService {
 	@Autowired
 	private ItemDAOImpl itemDAO;
 
-	public List<ItemDetail> getItemDetails() {
+	public List<ItemDetail> getItemDetailList() {
 		return itemDAO.getItemDetailsList();
 	}
 	
 	public int addItemDetails(ItemDetail itemDetail) {
 		return itemDAO.addItemDetails(itemDetail);
+	}
+	
+	public int updateItemDetails(ItemDetail itemDetail) {
+		return itemDAO.updateItemDetails(itemDetail);
+	}
+
+	public ItemDetail getItemDetailsById(int id) {
+		return itemDAO.getItemDetailsById(id);
 	}
 	
 }

@@ -13,11 +13,6 @@ import com.prokarma.classified.model.ItemDetail;
 @Repository("itemDAO")
 public class ItemDAOImpl extends AbstractDAOImpl {
 
-	public <T> Entity<T> findById(Entity<T> entity, String selectQuery) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public <T> int update(Entity<T> entity, String query) {
 		// TODO Auto-generated method stub
 		return 0;
@@ -62,6 +57,39 @@ public class ItemDAOImpl extends AbstractDAOImpl {
 			result = getNamedParameterJdbcTemplate().update(SQL, namedParameters);
 		}
 		return result;
+	}
+	
+	public <T> int updateItemDetails(ItemDetail itemDetail) {
+		int result = 0;
+		if(itemDetail != null){
+			final String SQL = "update item_details "
+					+ "set name=:name, price=:price, description=:description, location=:location, updated_ts=:updated_ts "
+					+ "where id=:id";
+			
+			final int id = itemDetail.getId();
+			final String name = itemDetail.getName();
+			final int price = itemDetail.getPrice();
+			final String description = itemDetail.getDescription();
+			final String location = itemDetail.getLocation();
+			final Timestamp timestamp = new Timestamp(new java.util.Date().getTime());
+			final Timestamp updated_ts = timestamp;
+			
+			Map namedParameters = new HashMap();   
+			namedParameters.put("id", id);
+			namedParameters.put("name", name);     
+			namedParameters.put("price", price);  
+			namedParameters.put("description", description);
+			namedParameters.put("location", location);
+			namedParameters.put("updated_ts", updated_ts);
+			
+			result = getNamedParameterJdbcTemplate().update(SQL, namedParameters);
+		}
+		return result;
+	}
+
+	public ItemDetail getItemDetailsById(int id) {
+		final String QUERY = "select * from item_details where id=" + id;
+		return (ItemDetail) findById(new ItemDetail(), QUERY);
 	}
 
 }

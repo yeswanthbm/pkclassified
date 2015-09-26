@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.prokarma.classified.entity.Entity;
 
@@ -14,7 +12,6 @@ import com.prokarma.classified.entity.Entity;
  * The persistent class for the item_details database table.
  * 
  */
-@XmlRootElement
 @JsonAutoDetect
 public class ItemDetail extends Entity<ItemDetail> implements Serializable {
 	private static final long serialVersionUID = 1L;

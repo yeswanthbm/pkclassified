@@ -29,8 +29,7 @@ public class AbstractDAOImpl implements AbstractDAO {
 		this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
 	}
 
-	public <T> Entity<T> findById(final Entity<T> entity,
-			final String selectQuery) {
+	public <T> Entity<T> findById(final Entity<T> entity, final String selectQuery) {
 		return find(entity, selectQuery);
 	}
 
