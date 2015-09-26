@@ -1,14 +1,20 @@
 package com.prokarma.classified.model;
 
 import java.io.Serializable;
-import java.util.List;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.prokarma.classified.entity.Entity;
 
 
 /**
  * The persistent class for the sub_category database table.
  * 
  */
-public class SubCategory implements Serializable {
+@XmlRootElement
+@JsonAutoDetect
+public class SubCategory extends Entity<SubCategory> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int id;
@@ -19,11 +25,8 @@ public class SubCategory implements Serializable {
 
 	private String name;
 
-	//bi-directional many-to-one association to ItemDetail
-	private List<ItemDetail> itemDetails;
-
 	//bi-directional many-to-one association to Category
-	private Category category;
+	private int categoryId;
 
 	public SubCategory() {
 	}
@@ -60,34 +63,12 @@ public class SubCategory implements Serializable {
 		this.name = name;
 	}
 
-	public List<ItemDetail> getItemDetails() {
-		return this.itemDetails;
+	public int getCategoryId() {
+		return categoryId;
 	}
 
-	public void setItemDetails(List<ItemDetail> itemDetails) {
-		this.itemDetails = itemDetails;
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
-
-	public ItemDetail addItemDetail(ItemDetail itemDetail) {
-		getItemDetails().add(itemDetail);
-		itemDetail.setSubCategory(this);
-
-		return itemDetail;
-	}
-
-	public ItemDetail removeItemDetail(ItemDetail itemDetail) {
-		getItemDetails().remove(itemDetail);
-		itemDetail.setSubCategory(null);
-
-		return itemDetail;
-	}
-
-	public Category getCategory() {
-		return this.category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
+	
 }

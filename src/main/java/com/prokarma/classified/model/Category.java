@@ -1,7 +1,6 @@
 package com.prokarma.classified.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -25,12 +24,6 @@ public class Category  extends Entity<Category> implements Serializable {
 	private String description;
 
 	private String name;
-
-	//bi-directional many-to-one association to ItemSubscription
-	private List<ItemSubscription> itemSubscriptions;
-
-	//bi-directional many-to-one association to SubCategory
-	private List<SubCategory> subCategories;
 
 	public Category() {
 	}
@@ -65,50 +58,6 @@ public class Category  extends Entity<Category> implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public List<ItemSubscription> getItemSubscriptions() {
-		return this.itemSubscriptions;
-	}
-
-	public void setItemSubscriptions(List<ItemSubscription> itemSubscriptions) {
-		this.itemSubscriptions = itemSubscriptions;
-	}
-
-	public ItemSubscription addItemSubscription(ItemSubscription itemSubscription) {
-		getItemSubscriptions().add(itemSubscription);
-		itemSubscription.setCategory(this);
-
-		return itemSubscription;
-	}
-
-	public ItemSubscription removeItemSubscription(ItemSubscription itemSubscription) {
-		getItemSubscriptions().remove(itemSubscription);
-		itemSubscription.setCategory(null);
-
-		return itemSubscription;
-	}
-
-	public List<SubCategory> getSubCategories() {
-		return this.subCategories;
-	}
-
-	public void setSubCategories(List<SubCategory> subCategories) {
-		this.subCategories = subCategories;
-	}
-
-	public SubCategory addSubCategory(SubCategory subCategory) {
-		getSubCategories().add(subCategory);
-		subCategory.setCategory(this);
-
-		return subCategory;
-	}
-
-	public SubCategory removeSubCategory(SubCategory subCategory) {
-		getSubCategories().remove(subCategory);
-		subCategory.setCategory(null);
-
-		return subCategory;
 	}
 
 }

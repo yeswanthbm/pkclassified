@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.prokarma.classified.entity.Entity;
 import com.prokarma.classified.model.Category;
+import com.prokarma.classified.model.SubCategory;
 
 @Repository("categoryDAO")
 public class CategoryDAOImpl extends AbstractDAOImpl {
@@ -19,11 +20,18 @@ public class CategoryDAOImpl extends AbstractDAOImpl {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
+
 	public List<Category> getCategoryList() {
 		final String QUERY = "select * from category";
 		return getList(new Category(), QUERY);
 	}
 
-	
+	public List<SubCategory> getSubCategoriesByCatId(int catId) {
+		if (catId > 0) {
+			final String QUERY = "select * from sub_category where category_id=" + catId;
+			return getList(new SubCategory(), QUERY);
+		}
+		return null;
+	}
+
 }

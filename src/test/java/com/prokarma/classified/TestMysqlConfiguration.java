@@ -2,14 +2,14 @@ package com.prokarma.classified;
 
 import org.springframework.orm.hibernate4.HibernateTemplate;
 
-import com.prokarma.classified.dao.CategoryDAO;
+import com.prokarma.classified.dao.CategoryDAOImpl;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration("file:src/main/webapp/WEB-INF/application-context.xml")
 public class TestMysqlConfiguration {
 	
 	
-	public CategoryDAO categoryDAO;
+	public CategoryDAOImpl categoryDAOImpl;
 	
 	public HibernateTemplate hibernateTemplate;
 	
@@ -17,7 +17,7 @@ public class TestMysqlConfiguration {
 	public void testDataBaseSession(){
 		System.out.println("hibernateTemplate**************"+hibernateTemplate);
 		
-		System.out.println("categoryDAO**************"+categoryDAO.getCategoryById(1).getDescription());
+		System.out.println("categoryDAO**************"+categoryDAOImpl);
 	}
 	
 
