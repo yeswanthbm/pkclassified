@@ -2,17 +2,9 @@ package com.prokarma.classified.model;
 
 import java.io.Serializable;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.prokarma.classified.entity.Entity;
 
-
-/**
- * The persistent class for the sub_category database table.
- * 
- */
-@XmlRootElement
 @JsonAutoDetect
 public class SubCategory extends Entity<SubCategory> implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -25,7 +17,6 @@ public class SubCategory extends Entity<SubCategory> implements Serializable {
 
 	private String name;
 
-	//bi-directional many-to-one association to Category
 	private int categoryId;
 
 	public SubCategory() {
