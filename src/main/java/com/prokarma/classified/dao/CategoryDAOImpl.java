@@ -9,7 +9,7 @@ import com.prokarma.classified.model.Category;
 import com.prokarma.classified.model.SubCategory;
 
 @Repository("categoryDAO")
-public class CategoryDAOImpl extends AbstractDAOImpl {
+public class CategoryDAOImpl extends AbstractDAOImpl implements CategoryDAO {
 
 	public <T> Entity<T> findById(Entity<T> entity, String selectQuery) {
 		// TODO Auto-generated method stub
@@ -28,7 +28,8 @@ public class CategoryDAOImpl extends AbstractDAOImpl {
 
 	public List<SubCategory> getSubCategoriesByCatId(int catId) {
 		if (catId > 0) {
-			final String QUERY = "select * from sub_category where category_id=" + catId;
+			final String QUERY = "select * from sub_category where category_id="
+					+ catId;
 			return getList(new SubCategory(), QUERY);
 		}
 		return null;

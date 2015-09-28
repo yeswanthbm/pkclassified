@@ -11,7 +11,7 @@ import com.prokarma.classified.entity.Entity;
 import com.prokarma.classified.model.ItemDetail;
 
 @Repository("itemDAO")
-public class ItemDAOImpl extends AbstractDAOImpl {
+public class ItemDAOImpl extends AbstractDAOImpl implements ItemDAO {
 
 	public <T> int update(Entity<T> entity, String query) {
 		// TODO Auto-generated method stub
@@ -43,7 +43,7 @@ public class ItemDAOImpl extends AbstractDAOImpl {
 			final Timestamp created_ts = timestamp;
 			final Timestamp updated_ts = timestamp;
 			
-			Map namedParameters = new HashMap();     
+			Map<String, Object> namedParameters = new HashMap<String, Object>();     
 			namedParameters.put("name", name);     
 			namedParameters.put("sub_category_id", sub_category_id);  
 			namedParameters.put("price", price);  
@@ -74,7 +74,7 @@ public class ItemDAOImpl extends AbstractDAOImpl {
 			final Timestamp timestamp = new Timestamp(new java.util.Date().getTime());
 			final Timestamp updated_ts = timestamp;
 			
-			Map namedParameters = new HashMap();   
+			Map<String, Object> namedParameters = new HashMap<String, Object>();   
 			namedParameters.put("id", id);
 			namedParameters.put("name", name);     
 			namedParameters.put("price", price);  
