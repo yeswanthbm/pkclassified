@@ -2,10 +2,6 @@ package com.prokarma.classified.model;
 
 import java.io.Serializable;
 
-/**
- * The primary key class for the item_subscription database table.
- * 
- */
 public class ItemSubscriptionPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;

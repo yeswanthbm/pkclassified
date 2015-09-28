@@ -7,11 +7,6 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.prokarma.classified.entity.Entity;
 
-
-/**
- * The persistent class for the item_details database table.
- * 
- */
 @JsonAutoDetect
 public class ItemDetail extends Entity<ItemDetail> implements Serializable {
 	private static final long serialVersionUID = 1L;

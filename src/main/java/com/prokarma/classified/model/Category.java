@@ -3,10 +3,9 @@ package com.prokarma.classified.model;
 import java.io.Serializable;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.prokarma.classified.entity.Entity;
 
-@JsonAutoDetect
+//@JsonAutoDetect
 public class Category  extends Entity<Category> implements Serializable {
 	private static final long serialVersionUID = 1L;
 

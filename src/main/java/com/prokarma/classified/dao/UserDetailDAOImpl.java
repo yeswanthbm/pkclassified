@@ -3,8 +3,11 @@ package com.prokarma.classified.dao;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import com.prokarma.classified.model.UserDetail;
 
+@Repository("userDetailDAO")
 public class UserDetailDAOImpl extends AbstractDAOImpl implements
 		UserDetailDAO {
 

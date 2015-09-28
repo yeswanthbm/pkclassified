@@ -13,6 +13,7 @@ import com.prokarma.classified.service.UserDetailService;
 @RestController
 @RequestMapping("/user")
 public class UserDetailControl {
+	
 	@Autowired
 	private UserDetailService userDetailService;
 
@@ -21,4 +22,5 @@ public class UserDetailControl {
 	public UserDetail getUserDetails(@PathVariable String userId) {
 		return userDetailService.getUser(userId);
 	}
+	
 }

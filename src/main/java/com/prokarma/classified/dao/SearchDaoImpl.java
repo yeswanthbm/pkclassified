@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.prokarma.classified.model.ItemDetail;
 
+@Repository("searchDao")
 public class SearchDaoImpl extends AbstractDAOImpl implements SearchDao {
 
 	public List<ItemDetail> searchItemDetails(String searchString) {

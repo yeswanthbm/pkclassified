@@ -3,11 +3,6 @@ package com.prokarma.classified.model;
 import java.io.Serializable;
 import java.util.List;
 
-
-/**
- * The persistent class for the user_details database table.
- * 
- */
 public class UserDetail implements Serializable {
 	private static final long serialVersionUID = 1L;
 
