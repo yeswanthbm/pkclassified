@@ -1,0 +1,81 @@
+
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <div class="col-lg-12 text-center">
+            <h3>Select Category</h3>
+            <hr class="star-primary">
+        </div>
+        <div class="row">
+            <div ng-repeat="categoryItem in category.categoryList" class="col-xs-6 col-sm-4">
+                <a class="portfolio-item">
+                    <div ng-click="" class="portfolio-link">
+                        <div class="caption text-center">{{categoryItem.name}}</div>
+                        <img class="fa-5" src={{categoryItem.imageLoc}} class="img-responsive" alt="">
+                    </div>
+                </a>
+                <div class="row view-post-div">
+                    <span class="col-xs-5 text-center">
+                        <a href="#/products" ng-click="category.setCategory(categoryItem.name)">View</a>
+                    </span>
+                    <span class="col-xs-5 text-center">
+                        <a href="#/addpost">Post</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+        <div class="col-lg-12 text-center">
+            <h3>Recently Added Items</h3>
+            <hr class="star-primary">
+        </div>
+        <div class="col-sm-12 recently-added-item item-ticker">
+        <div class="well list-view">
+            <div class="row" data-toggle="modal" data-target=".bs-example-modal-lg">
+                <div class="col-md-3"><img src="http://placehold.it/120x100" alt=""></div>
+                <div class="col-md-9 item-brief">
+                    <div class="item-header">
+                        <h4 class='display-inline-block'>Anonymous</h4>
+                        <span><em>10 days ago</em></span>
+                        <span class="pull-right">Price: 100</span>
+                    </div>
+                    <p>This product was great in terms of quality. I would definitely buy another!</p>
+                </div>
+            </div>
+            <div class="row" data-toggle="modal" data-target=".bs-example-modal-lg">
+                <div class="col-md-3"><img src="http://placehold.it/120x100" alt=""></div>
+                <div class="col-md-9 item-brief">
+                    <div class="item-header">
+                        <h4 class='display-inline-block'>Anonymous</h4>
+                        <span><em>12 days ago</em></span>
+                        <span class="pull-right">Price: 200</span>
+                    </div>
+                    <p>I've alredy ordered another one!</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><img src="http://placehold.it/120x100" alt=""></div>
+                <div class="col-md-9 item-brief">
+                    <div class="item-header">
+                        <h4 class='display-inline-block'>Anonymous</h4>
+                        <span><em>15 days ago</em></span>
+                        <span class="pull-right">Price: 300</span>
+                    </div>
+                    <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><img src="http://placehold.it/120x100" alt=""></div>
+                <div class="col-md-9 item-brief">
+                    <div class="item-header">
+                        <h4 class='display-inline-block'>Anonymous</h4>
+                        <span><em>15 days ago</em></span>
+                        <span class="pull-right">Price: 300</span>
+                    </div>
+                    <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

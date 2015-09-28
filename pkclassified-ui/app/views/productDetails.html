@@ -1,0 +1,141 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="product-details item-header">
+            <h4 class='display-inline-block'>{{productDetails.selectedProduct.name}}</h4>
+            <span><em>{{productDetails.selectedProduct.createdTs | date : 'medium'}}</em></span>
+            <span class="pull-right">Price: {{productDetails.selectedProduct.price}}</span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-8">
+        <div><strong>Item Images</strong></div>
+        <div class="row input-margin">
+            <div class="col-xs-12" >
+                <carousel class="carousal-style" interval="productDetails.myInterval" no-wrap="productDetails.noWrapSlides">
+                    <slide ng-repeat="slide in productDetails.slides" active="slide.active">
+                        <img ng-src="{{slide.image}}" ez-plus ezp-model="{thumb:IMGPATH, small:IMGPATH, large:IMGPATH}" ezp-options="" id={{$index+1} style="margin:auto;">
+                        <!--                    <div class="carousel-caption">
+                      <h3>Image {{$index+1}}</h3>
+                      <p>{{slide.text}}</p>
+                    </div>-->
+                    </slide>
+                </carousel>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-info" ng-click="productDetails.addSlide()">Add Slide</button>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="productDetails.noWrapSlides"> Disable Slide Looping
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                Interval, in milliseconds:
+                <input type="number" class="form-control" ng-model="productDetails.myInterval">
+                <span>Enter a negative number or 0 to stop the interval.</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4">
+        <div class="product-details-header"><strong>Item Details</strong></div>
+        <div class="row">
+            <label for="usr" class="col-xs-12 col-sm-3">Name:</label>
+            <span class="col-xs-12 col-sm-9">{{productDetails.selectedProduct.name}}</span>
+        </div>
+        <div class="row">
+            <label for="usr" class="col-xs-12 col-sm-3">Category:</label>
+            <span class="col-xs-12 col-sm-9">{{productDetails.selectedProduct.categoryName}}</span>
+        </div>
+        <div class="row">
+            <label for="usr" class="col-xs-12 col-sm-3"></label>
+            <span class="col-xs-12 col-sm-9"> -- {{productDetails.selectedProduct.subCategoryName}}</span>
+        </div>
+        <div class="row">
+            <label for="usr" class="col-xs-12 col-sm-3">Description:</label>
+            <span class="col-xs-12 col-sm-9">{{productDetails.selectedProduct.description}}</span>
+        </div>
+        <div class="row">
+            <label for="usr" class="col-xs-12 col-sm-3">Price:</label>
+            <span class="col-xs-12 col-sm-9">{{productDetails.selectedProduct.price}}</span>
+        </div>
+        <div class="row">
+            <label for="usr" class="col-xs-12 col-sm-3">Location:</label>
+            <span class="col-xs-12 col-sm-9">{{productDetails.selectedProduct.location}}</span>
+        </div>
+        <div class="row">
+            <label for="usr" class="col-xs-12 col-sm-3">Posted On:</label>
+            <span class="col-xs-12 col-sm-9">{{productDetails.selectedProduct.createdTs | date : 'medium'}}</span>
+        </div>
+    </div>
+</div>
+<div class="row input-margin">
+    <div class="col-sm-3 col-xs-5 col-centered">
+        <button type="button" class="btn btn-primary" ng-click="productDetails.open('lg')">View Contact</button>
+        <button type="button" class="btn btn-primary">Back</button>
+    </div>
+</div>
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h4 class="modal-title">Contact Details!</h4>
+    </div>
+    <div class="modal-body">
+<!--        <ul>
+            <li ng-repeat="item in modalInstance.items">
+                <a href="#" ng-click="$event.preventDefault(); modalInstance.selected.item = item">{{ item }}</a>
+            </li>
+        </ul>
+        Selected: <b>{{ modalInstance.selected.item }}</b>-->
+        <div class="row">
+            <div class="col-xs-9 col-sm-6">
+                <div class="row">
+                    <label for="usr" class="col-xs-12 col-sm-6">Name:</label>
+                    <span class="col-xs-12 col-sm-6">Aniruddha Daripa</span>
+                </div>
+                <div class="row">
+                    <label for="usr" class="col-xs-12 col-sm-6">Contact Number:</label>
+                    <span class="col-xs-12 col-sm-6">+91 7799 3030 80</span>
+                </div>
+                <div class="row">
+                    <label for="usr" class="col-xs-12 col-sm-6">Email ID:</label>
+                    <span class="col-xs-12 col-sm-6">daniruddha@prokarma.com</span>
+                </div>
+                <div class="row">
+                    <label for="usr" class="col-xs-12 col-sm-6">Alternate Email Id:</label>
+                    <span class="col-xs-12 col-sm-6">daripa.ani@gmail.com</span>
+                </div>
+                <div class="row">
+                    <label for="usr" class="col-xs-12 col-sm-6">Prafered Contact Time:</label>
+                    <span class="col-xs-12 col-sm-6">8AM - 4PM</span>
+                </div>
+            </div>
+            <div class="col-xs-10 col-sm-6 add-bar">
+               <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="msgSubject">Message Subject</label>
+                    <div>
+                      <input type="text" class="form-control" id="msgSubject" placeholder="Enter Subject">
+                    </div>
+                    <label for="msgBody">Message Body</label>
+                    <div>
+                        <textarea class="form-control" id="msgSubject" placeholder="Enter message body"></textarea>
+                    </div>
+                    <div class="col-centered col-sm-10">
+                      <button type="submit" class="btn btn-default">Submit</button>
+                      <button type="reset" class="btn btn-default">Clear</button>
+                      <button type="button" ng-click="#/category" class="btn btn-default">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="modalInstance.ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="modalInstance.cancel()">Cancel</button>
+    </div>
+</script>

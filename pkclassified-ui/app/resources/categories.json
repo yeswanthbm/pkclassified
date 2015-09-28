@@ -1,0 +1,37 @@
+[
+  {
+    "id": 11,
+    "name": "Real Estate",
+    "imageLoc": "img/portfolio/home.png",
+    "subCategory":[{"id": 1,"name": "For Rental"},{"id": 1,"name": "For Buy"}]
+  },
+    {
+    "id": 12,
+    "name": "Automobile",
+    "imageLoc": "img/portfolio/car.png",
+    "subCategory":[{"id": 1,"name": "Bike"},{"id": 1,"name": "Scooter"},{"id": 1,"name": "Car"},{"id": 1,"name": "SUV"},{"id": 1,"name": "Other"}]
+  },
+  {
+    "id": 13,
+    "name": "Household Items",
+    "imageLoc": "img/portfolio/household.png",
+    "subCategory":[{"id": 1,"name": "Fridge"},{"id": 1,"name": "TV"},{"id": 1,"name": "Washing Machine"},{"id": 1,"name": "Wooden Furniture"},{"id": 1,"name": "Kitchen Utencils"},{"id": 1,"name": "Other"}]
+  },
+  {
+    "id": 14,
+    "name": "Degital Media",
+    "imageLoc": "img/portfolio/periferals.png",
+    "subCategory":[{"id": 1,"name": "Desktop"},{"id": 1,"name": "Laptop"},{"id": 1,"name": "Tablet"},{"id": 1,"name": "Mobile"},{"id": 1,"name": "Computer Pariferals"},{"id": 1,"name": "Electronis Guagets"},{"id": 1,"name": "Other"}]
+  },
+  {
+    "id": 15,
+    "name": "Education",
+    "imageLoc": "img/portfolio/books.png",
+    "subCategory":[{"id": 1,"name": "Book"},{"id": 1,"name": "CD/Dvd"},{"id": 1,"name": "Other"}]
+  },
+  {
+    "id": 16,
+    "name": "Others",
+    "imageLoc": "img/portfolio/other.png"
+  }
+]

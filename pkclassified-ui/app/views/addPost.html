@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <div class="col-lg-12 text-center">
+            <h4>Add Product Details</h4>
+        </div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="itemname" class="col-sm-4 control-label">Item Name</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="itemname" placeholder="Enter item name">
+                </div>
+                <label for="category" class="col-sm-4 control-label">Category</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="category" placeholder="Select category">
+                </div>
+                <label for="subcategory" class="col-sm-4 control-label">Sub Category</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="subcategory" placeholder="Select subcategory">
+                </div>
+                <label for="shortdesc" class="col-sm-4 control-label">Short Description</label>
+                <div class="col-sm-8">
+                    <textarea type="text" class="form-control" id="category" placeholder="Select shortdesc"></textarea>
+                </div>
+                <label for="description" class="col-sm-4 control-label">Description</label>
+                <div class="col-sm-8">
+                    <textarea type="text" class="form-control" id="description" placeholder="Select Description"></textarea>
+                </div>
+                <label for="uploadimages" class="col-sm-4 control-label">Upload Images</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control file-upload-txt" id="uploadimagestext" placeholder="Select images">
+                    <span class="btn btn-default btn-file file-upload-btn">
+                    Browse <input type="file" id="uploadimages">
+                    </span>
+                </div>
+                <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                </div>
+                <label for="inputPhone3" class="col-sm-4 control-label">Phone Number</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="inputPhone3" placeholder="Phone Number">
+                </div>
+                <label for="preferedTime" class="col-sm-4 control-label">Prafered Contact Time:</label>
+                <div class="col-sm-8">
+                    <select class="form-control" id="preferedTime">
+                        <option value="">Select Prafered Time</option>
+                        <option value="morning">8AM-4PM</option>
+                        <option value="evening">2PM-10PM</option>
+                    </select>
+                </div>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Remember my choice
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="reset" class="btn btn-default">Clear</button>
+                    <button type="button" ng-click="#/category" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-12 col-md-6">
+        <div class="col-lg-12 text-center">
+            <h4>Uploaded Images</h4>
+        </div>
+        <div class="col-sm-12 uploaded-images">
+            <img src="http://placehold.it/160x140" alt="..." class="img-thumbnail">
+            <img src="http://placehold.it/160x140" alt="..." class="img-thumbnail">
+            <img src="http://placehold.it/160x140" alt="..." class="img-thumbnail">
+            <img src="http://placehold.it/160x140" alt="..." class="img-thumbnail">
+        </div>
+    </div>
+</div>
+<div class="jumbotron">
+    <h1>Locations</h1>
+    <p class="lead">
+        <img src="images/yeoman.png" alt="I'm Yeoman">
+        <br> Always a pleasure scaffolding your apps.
+    </p>
+    <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+</div>
+
+<div class="row marketing">
+    <h4>HTML5 Boilerplate</h4>
+    <p>
+        HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+    </p>
+
+    <h4>Angular</h4>
+    <p>
+        AngularJS is a toolset for building the framework most suited to your application development.
+    </p>
+
+    <h4>Karma</h4>
+    <p>Spectacular Test Runner for JavaScript.</p>
+</div>

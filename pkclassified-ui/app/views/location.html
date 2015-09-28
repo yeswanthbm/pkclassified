@@ -1,0 +1,23 @@
+<header class="jumbotron">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="name display-inline-block">Welcome</h1>
+            <img class="user-logo img-responsive" src="img/profile.png" alt="">
+            <h1 class="name display-inline-block">UserName</h1>
+            <div class="intro-text">
+                <span class="name">Select Your Location</span>
+                <hr class="star-light">
+                <div class="dropdown display-inline-block">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="location" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="skills">{{$root.userLocation}}</span>
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="location">
+                      <li><a href="" ng-model="location" ng-click="$root.userLocation='Hyderabad'">Hyderabad</a></li>
+                      <li><a href="" ng-model="location" ng-click="$root.userLocation='Chennai'">Chennai</a></li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

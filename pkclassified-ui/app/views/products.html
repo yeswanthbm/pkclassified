@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-3">
+        <p class="lead">View Type</p>
+        <div class="btn-group btn-bar" role="group" aria-label="...">
+            <button type="button" ng-click="isListView = true" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></button>
+            <button type="button" ng-click="isListView = false" class="btn btn-default"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button>
+        </div>
+        <p class="lead">Search By Item Type</p>
+        <div class="list-group">
+            <accordion close-others="products.oneAtATime">
+                <accordion-group heading="{{category.name}}" class="left-list" ng-repeat="category in products.categoryList">
+                    <a href="" class="list-group-item" ng-repeat="subCategory in category.subCategory">{{subCategory.name}}</a>
+                </accordion-group>
+            </accordion>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+
+        <div class="well list-view" ng-if="isListView">
+            <a class="row" href="#/productDetails" ng-repeat="product in products.productList" ng-click="products.setCurrentProduct(product)">
+                <div class="col-md-3"><img class="product-img" src={{product.image}} alt=""></div>
+                <div class="col-md-9 item-brief">
+                    <div class="item-header">
+                        <h4 class='display-inline-block'>{{product.name}}</h4>
+                        <span><em>{{product.createdTs | date : 'mediumDate'}}</em></span>
+                        <span class="pull-right">Price: {{product.price}}</span>
+                    </div>
+                    <p>{{product.sortdesc}}</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="row grid-view" ng-if="!isListView">
+
+            <a class="items col-sm-4 col-lg-4 col-md-4" href="#/productDetails" ng-repeat="product in products.productList">
+                <div class="thumbnail">
+                    <img class="product-grid-img" src={{product.image}}  alt="">
+                    <div class="caption">
+                        <h4>{{product.name}}</h4>
+                        <span><em>{{product.createdTs | date : 'mediumDate'}}</em></span>
+                        <span class="pull-right">Price: {{product.price}}</span>
+                        <p>{{product.sortdesc}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
