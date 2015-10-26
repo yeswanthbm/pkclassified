@@ -1,4 +1,4 @@
-job('Example with docker new') {
+job('Example with docker new pandu') {
     steps {
         shell('''
             set +x
