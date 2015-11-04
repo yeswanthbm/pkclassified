@@ -4,10 +4,12 @@ freeStyleJob('freestyle job') {
 		location('https://svn2.prokarma.com/svn/dockertestapp/branches/junitmavenexample') {
                 directory('proj2')
                 depth(SvnDepth.EMPTY)
-                credentialsBinding {
-                   usernamePassword('PASSWORD', 'jarsign-keystore')
-                }
             }
+        wrappers {
+           credentialsBinding {
+            usernamePassword('PASSWORD', 'jarsign-keystore')
+           }
+        }
         }
 	
     }
