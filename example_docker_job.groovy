@@ -1,9 +1,12 @@
 freeStyleJob('freestyle job') {
-    logRotator(-1, 10)
     scm {
-        svn('https://svn2.prokarma.com/svn/dockertestapp/branches/junitmavenexample')
-	userName('kpandurangarao')
-        password('admin@123')
+	svn {
+		location('https://svn2.prokarma.com/svn/dockertestapp/branches/junitmavenexample') {
+                directory('proj2')
+                depth(SvnDepth.EMPTY)
+            }
+        }
+	
     }
     steps {
         maven('clean install')
