@@ -6,8 +6,9 @@ freeStyleJob('freestyle job') {
                 depth(SvnDepth.EMPTY)
             }
         wrappers {
-           credentialsBinding {
-            usernamePassword('PASSWORD', 'jarsign-keystore')
+           credentials{
+            username('username')
+            password('PASSWORD')
            }
         }
         }
