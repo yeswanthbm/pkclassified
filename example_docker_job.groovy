@@ -1,16 +1,11 @@
-job('Example with docker new pandu') {
+freeStyleJob('freestyle job') {
+    logRotator(-1, 10)
+    scm {
+        svn('https://svn2.prokarma.com/svn/dockertestapp/branches/junitmavenexample')
+	credentials('kpandurangarao')
+    }
     steps {
-        shell('''
-            set +x
-            docker version || KO=1
-            
-            if [ "$KO" -eq "1" ]; then
-                echo -e "\\n\\ndocker is not available, see https://goo.gl/RpkBZz\\n\\n"
-                exit 1
-            else
-                echo -e"\\n\\ndocker is available\\n\\n"
-                docker images
-            fi
-        '''.stripIndent())
+        maven('clean install')
     }
 }
+
