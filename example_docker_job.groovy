@@ -1,9 +1,6 @@
 freeStyleJob('freestyle job') {
 	wrappers {
-        	credentials{
-            		username('username')
-            		password('PASSWORD')
-        	}
+        	credentials('something')
 	}
     scm {
 	svn {
