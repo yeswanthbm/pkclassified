@@ -3,7 +3,6 @@ freeStyleJob('freestyle job') {
 	svn {
 		location('https://svn2.prokarma.com/svn/dockertestapp/branches/junitmavenexample') {
                 depth(SvnDepth.EMPTY)
-                credentialsId('foo-password')
             }
         }
 	
