@@ -1,1 +1,3 @@
 This is now moved to GIT repo
+
+Now I merge code with master
